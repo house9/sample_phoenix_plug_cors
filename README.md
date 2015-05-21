@@ -5,22 +5,23 @@ mix archive.install https://github.com/phoenixframework/phoenix/releases/downloa
 mix phoenix.new sample_phoenix_plug_cors
 # add `{:plug_cors, "~> 0.7"}` to mix.exs
 mix deps.get
-# update endpoint and router
+# configure plug_cors
 mix phoenix.server
 ```
 
-```
-curl -v -X GET http://127.0.0.1:4000/ -o /dev/null
+Configured like so:
 
-# ...
+* config/dev.exs
+  * `config :plug_cors, origins: ["fiddle.jshell.net"]`
+* config/prod.exs
+  * `config :plug_cors, origins: ["example.com"]`
+* lib/{{application_name}}/endpoint.ex
+  * `plug PlugCors, methods: ["GET", "PUT"]`
+  * ensure it is above `plug :router, App.Router`
 
-< HTTP/1.1 200 OK
-```
+Test from [this jsfiddle link](http://jsfiddle.net/02fj457x/)
 
-```
-curl -v -X OPTIONS http://127.0.0.1:4000/ -o /dev/null
+For actual development change `config/dev.exs` to one of
 
-# ...
-
-< HTTP/1.1 404 Not Found
-```
+* `config :plug_cors, origins: ["localhost"]`
+* `config :plug_cors, origins: "*"`

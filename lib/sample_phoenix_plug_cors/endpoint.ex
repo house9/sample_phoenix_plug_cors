@@ -31,6 +31,6 @@ defmodule SamplePhoenixPlugCors.Endpoint do
     key: "_sample_phoenix_plug_cors_key",
     signing_salt: "PB34Kn91"
 
-  plug PlugCors, origins: ["fiddle.jshell.net"], methods: ["GET", "PUT"]
+  plug PlugCors, methods: ["GET", "PUT"]
   plug :router, SamplePhoenixPlugCors.Router
 end

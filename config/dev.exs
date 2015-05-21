@@ -33,3 +33,5 @@ config :sample_phoenix_plug_cors, SamplePhoenixPlugCors.Repo,
   password: "postgres",
   database: "sample_phoenix_plug_cors_dev",
   size: 10 # The amount of database connections in the pool
+
+config :plug_cors, origins: ["fiddle.jshell.net"]

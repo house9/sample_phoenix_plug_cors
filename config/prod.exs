@@ -46,6 +46,8 @@ config :logger, level: :info
 #     config :sample_phoenix_plug_cors, SamplePhoenixPlugCors.Endpoint, server: true
 #
 
+config :plug_cors, origins: ["example.com"]
+
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
