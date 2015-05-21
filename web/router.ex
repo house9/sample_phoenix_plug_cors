@@ -20,7 +20,11 @@ defmodule SamplePhoenixPlugCors.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SamplePhoenixPlugCors do
-  #   pipe_through :api
-  # end
+   scope "/api", SamplePhoenixPlugCors do
+     pipe_through :api
+
+     get "/user", PageController, :get_user
+     post "/user", PageController, :post_user
+     put "/user", PageController, :put_user
+   end
 end
