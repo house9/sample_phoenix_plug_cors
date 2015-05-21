@@ -2,6 +2,7 @@ defmodule SamplePhoenixPlugCors.Router do
   use SamplePhoenixPlugCors.Web, :router
 
   pipeline :browser do
+    plug PlugCors
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash

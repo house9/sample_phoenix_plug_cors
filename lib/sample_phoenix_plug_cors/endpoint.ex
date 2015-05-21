@@ -31,5 +31,6 @@ defmodule SamplePhoenixPlugCors.Endpoint do
     key: "_sample_phoenix_plug_cors_key",
     signing_salt: "PB34Kn91"
 
+  plug PlugCors, origins: ["*"]
   plug :router, SamplePhoenixPlugCors.Router
 end
